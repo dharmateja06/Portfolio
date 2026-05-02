@@ -18,9 +18,8 @@ export function Navbar() {
       className="fixed left-0 right-0 top-0 z-50 flex justify-center px-4 pt-5"
     >
       <nav className="glass flex w-full max-w-3xl items-center justify-between rounded-full px-5 py-2.5">
-        <a href="#hero" className="font-display text-sm font-bold tracking-tight whitespace-nowrap">
-          <span className="text-gradient">Dharma Teja</span>
-          <span className="text-foreground/80"> R C</span>
+        <a href="#hero" className="font-display text-sm font-bold tracking-tight whitespace-nowrap text-foreground">
+          Dharma Teja R C
         </a>
         <ul className="hidden items-center gap-1 md:flex">
           {links.map((l) => (
@@ -36,7 +35,7 @@ export function Navbar() {
         </ul>
         <a
           href="#contact"
-          className="rounded-full bg-violet-blue px-4 py-1.5 text-xs font-semibold text-primary-foreground transition hover:opacity-90"
+          className="rounded-full bg-foreground px-4 py-1.5 text-xs font-semibold text-background transition hover:opacity-90"
         >
           Let's talk
         </a>

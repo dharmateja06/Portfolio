@@ -48,7 +48,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-32">
+    <section id="contact" className="relative py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Contact"
@@ -61,9 +61,8 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass relative overflow-hidden rounded-3xl p-8 lg:col-span-2"
+            className="glass relative overflow-hidden rounded-xl p-8 lg:col-span-2"
           >
-            <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-violet-blue opacity-30 blur-3xl" />
             <h3 className="font-display text-2xl font-semibold">Direct lines</h3>
             <p className="mt-2 text-sm text-muted-foreground">Pick whichever works for you.</p>
             <ul className="relative mt-8 space-y-4 text-sm">
@@ -100,7 +99,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="glass space-y-4 rounded-3xl p-8 lg:col-span-3"
+            className="glass space-y-4 rounded-xl p-8 lg:col-span-3"
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Your name" name="name" value={name} onChange={setName} />
@@ -109,7 +108,7 @@ export function Contact() {
             <Field label="Message" name="message" textarea value={message} onChange={setMessage} />
             <button
               type="submit"
-              className="group inline-flex items-center gap-2 rounded-full bg-violet-blue px-6 py-3 text-sm font-semibold text-primary-foreground glow-neon transition hover:scale-[1.02]"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:opacity-90"
             >
               {sent ? "Mail client opened" : "Send message"}
               <Send className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -117,7 +116,7 @@ export function Contact() {
           </motion.form>
         </div>
       </div>
-      <footer className="mx-auto mt-20 max-w-7xl border-t border-white/5 px-6 py-8 text-center font-mono text-[11px] text-muted-foreground">
+      <footer className="mx-auto mt-12 max-w-7xl border-t border-white/5 px-6 py-8 text-center font-mono text-[11px] text-muted-foreground">
         © {new Date().getFullYear()} Dharma Teja R C · Designed & built with care.
       </footer>
     </section>

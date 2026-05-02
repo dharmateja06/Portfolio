@@ -11,7 +11,7 @@ const items = [
 
 export function Achievements() {
   return (
-    <section id="achievements" className="relative py-32">
+    <section id="achievements" className="relative py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeading
           eyebrow="Recognition"
@@ -25,10 +25,10 @@ export function Achievements() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="glass group flex items-center gap-4 rounded-2xl p-5"
+              className="glass flex items-center gap-4 rounded-xl p-5"
             >
-              <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-blue glow-neon">
-                <Award className="h-5 w-5 text-primary-foreground" />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
+                <Award className="h-4 w-4 text-foreground/80" />
               </div>
               <div>
                 <h3 className="font-display text-base font-semibold">{it.title}</h3>

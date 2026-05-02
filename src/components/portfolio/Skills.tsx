@@ -12,7 +12,7 @@ const groups = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-32">
+    <section id="skills" className="relative py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Toolkit"
@@ -27,7 +27,7 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="glass group relative rounded-2xl p-6 transition hover:border-primary/30"
+              className="glass relative rounded-xl p-6 transition hover:border-white/20"
             >
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="font-display text-base font-semibold">{g.title}</h3>

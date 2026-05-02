@@ -1,35 +1,76 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial, Sphere, Stars, Icosahedron } from "@react-three/drei";
-import { Suspense, useRef } from "react";
-import type { Mesh } from "three";
+import { Suspense, useMemo, useRef } from "react";
+import * as THREE from "three";
 
-function Core() {
-  const ref = useRef<Mesh>(null);
-  useFrame((_, d) => { if (ref.current) { ref.current.rotation.y += d * 0.25; ref.current.rotation.x += d * 0.1; } });
+/**
+ * Minimal, professional background:
+ * a slow-rotating wireframe lattice + subtle drifting particles.
+ * No glow, no color noise — pure monochrome line work.
+ */
+
+function Lattice() {
+  const group = useRef<THREE.Group>(null);
+  useFrame((_, d) => {
+    if (!group.current) return;
+    group.current.rotation.y += d * 0.05;
+    group.current.rotation.x += d * 0.02;
+  });
+
+  const lines = useMemo(() => {
+    const geos: THREE.BufferGeometry[] = [];
+    const size = 6;
+    const step = 1;
+    for (let i = -size; i <= size; i += step) {
+      const a = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(-size, 0, i),
+        new THREE.Vector3(size, 0, i),
+      ]);
+      const b = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(i, 0, -size),
+        new THREE.Vector3(i, 0, size),
+      ]);
+      geos.push(a, b);
+    }
+    return geos;
+  }, []);
+
   return (
-    <Float speed={1.4} rotationIntensity={0.6} floatIntensity={1.2}>
-      <Sphere ref={ref} args={[1.35, 96, 96]}>
-        <MeshDistortMaterial
-          color="#7c3aed"
-          emissive="#3b82f6"
-          emissiveIntensity={0.5}
-          distort={0.45}
-          speed={2}
-          roughness={0.15}
-          metalness={0.85}
-        />
-      </Sphere>
-    </Float>
+    <group ref={group} rotation={[-Math.PI / 3.2, 0, 0]} position={[0, -0.4, 0]}>
+      {lines.map((g, i) => (
+        <line key={i}>
+          <primitive object={g} attach="geometry" />
+          <lineBasicMaterial color="#ffffff" transparent opacity={0.08} />
+        </line>
+      ))}
+    </group>
   );
 }
 
-function Wire() {
-  const ref = useRef<Mesh>(null);
-  useFrame((_, d) => { if (ref.current) { ref.current.rotation.y -= d * 0.15; ref.current.rotation.z += d * 0.08; } });
+function Particles() {
+  const ref = useRef<THREE.Points>(null);
+  const positions = useMemo(() => {
+    const n = 400;
+    const arr = new Float32Array(n * 3);
+    for (let i = 0; i < n; i++) {
+      arr[i * 3] = (Math.random() - 0.5) * 14;
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 8;
+      arr[i * 3 + 2] = (Math.random() - 0.5) * 8;
+    }
+    return arr;
+  }, []);
+  useFrame((_, d) => {
+    if (ref.current) ref.current.rotation.y += d * 0.02;
+  });
   return (
-    <Icosahedron ref={ref} args={[2.1, 1]}>
-      <meshBasicMaterial color="#22d3ee" wireframe transparent opacity={0.25} />
-    </Icosahedron>
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          args={[positions, 3]}
+        />
+      </bufferGeometry>
+      <pointsMaterial size={0.015} color="#ffffff" transparent opacity={0.4} sizeAttenuation />
+    </points>
   );
 }
 
@@ -37,16 +78,13 @@ export function HeroScene() {
   return (
     <Canvas
       dpr={[1, 2]}
-      camera={{ position: [0, 0, 5], fov: 45 }}
+      camera={{ position: [0, 1.5, 5], fov: 50 }}
       className="!absolute inset-0"
     >
       <Suspense fallback={null}>
-        <ambientLight intensity={0.4} />
-        <pointLight position={[5, 5, 5]} intensity={2.4} color="#a78bfa" />
-        <pointLight position={[-5, -3, -2]} intensity={1.8} color="#3b82f6" />
-        <Core />
-        <Wire />
-        <Stars radius={30} depth={50} count={1500} factor={3} saturation={0} fade speed={0.6} />
+        <ambientLight intensity={0.6} />
+        <Lattice />
+        <Particles />
       </Suspense>
     </Canvas>
   );
