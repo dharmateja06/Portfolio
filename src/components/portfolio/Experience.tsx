@@ -4,8 +4,8 @@ import { SectionHeading } from "./SectionHeading";
 const timeline = [
   {
     role: "Web Developer Intern",
-    org: "Dev Creations",
-    period: "2024 — 2025",
+    org: "Dev Creations and Solutions",
+    period: "Jul 2025 — Jan 2026",
     points: [
       "Built real-world client websites including tridalanutrafood.com",
       "Owned UI, frontend structure and responsive integration",
@@ -14,11 +14,11 @@ const timeline = [
   },
   {
     role: "Research Intern",
-    org: "Geopolitics × AI",
-    period: "2024",
+    org: "Center of Excellence for Geopolitics and International Studies, REVA University",
+    period: "May 2025 — Jun 2025",
     points: [
-      "Research at the intersection of AI and cybersecurity",
-      "Co-authored published research output",
+      "Research at the intersection of AI, cybersecurity and geopolitics",
+      "Co-authored a published article on Geopolitics",
       "Explored applied AI in policy and intelligence contexts",
     ],
   },

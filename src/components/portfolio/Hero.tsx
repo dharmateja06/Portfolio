@@ -53,7 +53,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.1 }}
           className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-7xl md:text-8xl"
         >
-          Hi, I'm <span className="text-gradient">Dharma Teja</span>
+          Hi, I'm <span className="text-gradient">Dharma Teja R C</span>
         </motion.h1>
 
         <motion.p
