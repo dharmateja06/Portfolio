@@ -89,9 +89,8 @@ function TiltCard({ p }: { p: Project }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6 }}
-      className="glass group relative flex h-full flex-col overflow-hidden rounded-3xl p-6 will-change-transform"
+      className="glass relative flex h-full flex-col overflow-hidden rounded-xl p-6 will-change-transform"
     >
-      <div className={`absolute -top-20 left-1/2 h-40 w-[120%] -translate-x-1/2 rounded-full bg-gradient-to-r ${p.accent} opacity-20 blur-3xl transition group-hover:opacity-40`} />
       <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">{p.category}</span>
       <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight">{p.title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
@@ -104,7 +103,7 @@ function TiltCard({ p }: { p: Project }) {
         {p.live && (
           <a
             href={p.live} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-violet-blue px-3.5 py-1.5 text-xs font-semibold text-primary-foreground transition hover:opacity-90"
+            className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-xs font-semibold text-background transition hover:opacity-90"
           >
             <ExternalLink className="h-3.5 w-3.5" /> Live Demo
           </a>
@@ -124,7 +123,7 @@ function TiltCard({ p }: { p: Project }) {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-32">
+    <section id="projects" className="relative py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="Selected work"

@@ -84,7 +84,7 @@ export function Hero() {
         >
           <a
             href="#projects"
-            className="group inline-flex items-center gap-2 rounded-full bg-violet-blue px-6 py-3 text-sm font-semibold text-primary-foreground glow-neon transition hover:scale-[1.03]"
+            className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:opacity-90"
           >
             View Projects
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -100,7 +100,7 @@ export function Hero() {
             target="_blank" rel="noreferrer"
             className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-white/5"
           >
-            <Sparkles className="h-4 w-4 text-cyber" /> View Live Work
+            <Sparkles className="h-4 w-4 text-foreground/70" /> View Live Work
           </a>
         </motion.div>
 

@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 
 export function Identity() {
   return (
-    <section className="relative py-32">
+    <section className="relative py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyber"
+          className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/60"
         >
           // identity
         </motion.p>

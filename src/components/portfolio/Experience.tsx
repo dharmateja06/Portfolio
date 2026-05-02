@@ -26,14 +26,14 @@ const timeline = [
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-32">
+    <section id="experience" className="relative py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-6">
         <SectionHeading
           eyebrow="Journey"
           title={<>Experience <span className="text-gradient">timeline</span></>}
         />
         <div className="relative">
-          <div className="absolute left-3 top-2 h-full w-px bg-gradient-to-b from-violet to-primary opacity-50 md:left-4" />
+          <div className="absolute left-3 top-2 h-full w-px bg-white/10 md:left-4" />
           <div className="space-y-8">
             {timeline.map((t, i) => (
               <motion.div
@@ -44,17 +44,17 @@ export function Experience() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="relative pl-12 md:pl-16"
               >
-                <span className="absolute left-1.5 top-2 h-3 w-3 rounded-full bg-violet-blue glow-neon md:left-2.5" />
-                <div className="glass rounded-2xl p-6">
+                <span className="absolute left-1.5 top-2.5 h-2.5 w-2.5 rounded-full border border-white/30 bg-background md:left-2.5" />
+                <div className="glass rounded-xl p-6">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="font-display text-xl font-semibold">{t.role}</h3>
-                    <span className="font-mono text-xs text-cyber">{t.period}</span>
+                    <span className="font-mono text-xs text-foreground/70">{t.period}</span>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">{t.org}</p>
                   <ul className="mt-4 space-y-2 text-sm text-foreground/80">
                     {t.points.map((p) => (
                       <li key={p} className="flex gap-2">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-foreground/50" />
                         {p}
                       </li>
                     ))}
