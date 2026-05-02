@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Brain, Code2, Trophy, Rocket, ShieldCheck, Users, ImagePlus } from "lucide-react";
+import { Brain, Code2, Trophy, Rocket, ShieldCheck, Users } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
+import Photo from "../../Photo.jpeg";
 
 const cards = [
   { icon: Brain, title: "AI × Web Hybrid", text: "I bridge intelligent systems with production-ready interfaces." },
@@ -24,14 +25,9 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass relative mx-auto flex aspect-square w-full max-w-[280px] flex-col items-center justify-center overflow-hidden rounded-xl border-dashed text-center"
-            style={{ borderStyle: "dashed" }}
+            className="glass relative mx-auto flex aspect-square w-full max-w-[280px] overflow-hidden rounded-xl"
           >
-            {/* Replace this block with your photo: <img src="/me.jpg" alt="Dharma Teja R C" className="h-full w-full object-cover" /> */}
-            <ImagePlus className="h-7 w-7 text-foreground/60" />
-            <p className="mt-3 px-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              Upload photo here
-            </p>
+            <img src={Photo} alt="Dharma Teja R C" className="h-full w-full object-contain" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
