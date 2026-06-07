@@ -46,9 +46,9 @@ export function Education() {
               </div>
               <h3 className="font-display text-lg font-semibold">{e.school}</h3>
               <p className="mt-1 text-sm text-foreground/80">{e.degree}</p>
-              <div className="mt-4 flex items-center justify-between">
+              <div className="mt-4 flex flex-wrap items-end justify-between gap-3 border-t border-white/8 pt-4">
                 <span className="font-mono text-xs text-foreground/70">{e.period}</span>
-                <span className="font-mono text-xs text-muted-foreground">{e.score}</span>
+                <span className="font-mono text-sm font-semibold text-foreground/95">{e.score}</span>
               </div>
             </motion.div>
           ))}
