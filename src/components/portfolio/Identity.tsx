@@ -11,7 +11,7 @@ export function Identity() {
           transition={{ duration: 0.6 }}
           className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/60"
         >
-          // identity
+          identity
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 24 }}

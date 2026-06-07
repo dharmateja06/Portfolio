@@ -15,6 +15,12 @@ const education = [
     period: "2021 — 2023",
     score: "91.17%",
   },
+  {
+    school: "St.Peter's ENG MED High School, Ballari",
+    degree: "10th Standard",
+    period: "2020 — 2021",
+    score: "94.56%",
+  },
 ];
 
 export function Education() {

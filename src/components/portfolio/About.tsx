@@ -37,7 +37,7 @@ export function About() {
             className="glass rounded-xl p-6"
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/60">
-              // leadership
+               leadership
             </p>
             <h3 className="mt-3 font-display text-2xl font-semibold">
               Leading communities, building culture

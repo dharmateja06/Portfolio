@@ -3,10 +3,10 @@ import { Award } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const items = [
-  { title: "Winner — Best AI Team", event: "Hackathon 2024" },
-  { title: "2nd Runner-Up", event: "IOTOPIA" },
-  { title: "Top 15", event: "SJBIT Hackathon" },
-  { title: "Top 10% Finalist", event: "Bengaluru Hackathon" },
+  { title: "Winner — Best AI Team", event: "JIT Hackathon 2024" },
+  { title: "2nd Runner-Up", event: "IOTOPIA Hackathon,REVA University" },
+  { title: "Top 15", event: "AXIOM Hackathon , SJBIT" },
+  { title: "Top 10% Finalist", event: "Great Bengaluru Hackathon" },
 ];
 
 export function Achievements() {
