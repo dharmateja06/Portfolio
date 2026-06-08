@@ -20,8 +20,7 @@ export function Identity() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl"
         >
-          I build both <span className="text-gradient">logic</span> <br className="hidden sm:block" />
-          and <span className="text-gradient">experience</span>.
+          I build intelligent systems, scalable data solutions, and <span className="text-gradient">user-focused applications</span>.
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -30,8 +29,7 @@ export function Identity() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground"
         >
-          Full-stack engineering. AI systems. Interface design. Real-world deployments.
-          One person, one mind, one cohesive product surface.
+          From AI models and data pipelines to cloud platforms and full-stack products, I create solutions that transform data into impact.
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}

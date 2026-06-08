@@ -7,9 +7,9 @@ const timeline = [
     org: "Dev Creations and Solutions",
     period: "Jul 2025 — Jan 2026",
     points: [
-      "Built real-world client websites including tridalanutrafood.com",
-      "Owned UI, frontend structure and responsive integration",
-      "Worked across design hand-off, components and API wiring",
+      "Built REST API-integrated applications handling structured data workflows.",
+      "Designed backend data flows and database interactions.",
+      "Worked with real-world data processing and system integration.",
     ],
   },
   {
@@ -17,9 +17,9 @@ const timeline = [
     org: "Center of Excellence for Geopolitics and International Studies, REVA University",
     period: "May 2025 — Jun 2025",
     points: [
-      "Research at the intersection of AI, cybersecurity and geopolitics",
-      "Co-authored a published article on Geopolitics",
-      "Explored applied AI in policy and intelligence contexts",
+      "Analyzed large-scale research datasets and technical reports.",
+      "Applied AI-driven methodologies for data analysis and insights generation.",
+      "Contributed to research publications involving technology and data-centric studies.",
     ],
   },
 ];

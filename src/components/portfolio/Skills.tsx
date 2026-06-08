@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 
 const groups = [
-  { title: "Languages", items: ["Python", "JavaScript", "C", "Java"] },
-  { title: "Web", items: ["React.js", "Flask", "HTML", "CSS", "REST APIs"] },
-  { title: "AI / ML", items: ["Machine Learning", "CNN", "Computer Vision", "NLP"] },
-  { title: "Tools", items: ["Git", "GitHub", "Netlify", "Figma", "Power BI"] },
-  { title: "Design", items: ["UI/UX", "Responsive", "Web Aesthetics", "Prototyping"] },
-  { title: "Concepts", items: ["RAG Systems", "Data Structures", "REST", "Cloud Basics"] },
+  { title: "01. Core Programming", items: ["Python", "SQL", "Java", "JavaScript", "C", "Git", "GitHub", "Docker"] },
+  { title: "02. AI / Machine Learning", items: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "CNN", "Generative AI", "RAG Systems", "Model Deployment"] },
+  { title: "03. Data Engineering", items: ["ETL Pipelines", "Data Modeling", "PostgreSQL", "MySQL", "Apache Kafka", "Hadoop", "Data Quality", "Batch Processing"] },
+  { title: "04. Cloud & Data Platforms", items: ["Salesforce Data Cloud", "Informatica Cloud", "Cloud Storage", "Data Streams", "Identity Resolution", "Customer 360", "Data Integration", "Data Analytics"] },
+  { title: "05. Full-Stack Development", items: ["React.js", "Flask", "REST APIs", "Backend Development", "Frontend Development", "Database Design", "Authentication", "Responsive Design"] },
+  { title: "06. Tools & Analytics", items: ["Power BI", "Figma", "VS Code", "Postman", "Linux", "API Testing", "System Design", "Problem Solving"] },
 ];
 
 export function Skills() {
@@ -17,9 +17,9 @@ export function Skills() {
         <SectionHeading
           eyebrow="Toolkit"
           title={<>Skills, languages & <span className="text-gradient">stacks</span></>}
-          description="The technologies I use to design, build, and ship intelligent products."
+          description="Technologies and platforms I use to build AI systems, engineer scalable data solutions, and develop production-ready applications."
         />
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3">
           {groups.map((g, i) => (
             <motion.div
               key={g.title}
@@ -27,13 +27,13 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="glass relative rounded-xl p-6 transition hover:border-white/20"
+              className="glass relative flex h-full flex-col justify-start rounded-xl p-4 transition hover:border-white/20"
             >
-              <div className="mb-4 flex items-center justify-between">
+              <div className="mb-2 flex items-start justify-between gap-3">
                 <h3 className="font-display text-base font-semibold">{g.title}</h3>
                 <span className="font-mono text-[10px] text-muted-foreground">0{i + 1}</span>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="mt-1 flex flex-wrap items-start gap-2">
                 {g.items.map((it) => (
                   <span
                     key={it}

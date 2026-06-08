@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Mail, Sparkles } from "lucide-react";
 import { HeroScene } from "./HeroScene";
 
-const roles = ["AI Developer", "Full Stack Engineer", "UI/UX Designer"];
+const roles = ["AI Engineer", "Data Engineer", "Full-Stack Developer", "ML Engineer", "Problem Solver"];
 
 function useTyping(words: string[]) {
   const [i, setI] = useState(0);
@@ -72,8 +72,8 @@ export function Hero() {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="mt-5 max-w-xl text-sm text-muted-foreground sm:text-base"
         >
-          B.Tech in Artificial Intelligence & Data Science. I build intelligent systems,
-          ship real-world web products, and design experiences that feel alive.
+          B.Tech in Artificial Intelligence & Data Science. I build AI systems,
+          scalable data pipelines, and production-ready web applications.
         </motion.p>
 
         <motion.div

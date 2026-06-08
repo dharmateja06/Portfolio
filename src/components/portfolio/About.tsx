@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Brain, Code2, Trophy, Rocket, ShieldCheck, Users } from "lucide-react";
+import { Brain, Code2, Trophy, Rocket, ShieldCheck, Users, Database } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import Photo from "../../Photo.jpeg";
 
@@ -8,6 +8,7 @@ const cards = [
   { icon: Trophy, title: "Hackathon Achiever", text: "Multiple wins and finalist placements across India." },
   { icon: Rocket, title: "Shipped to Production", text: "Live client websites built end-to-end during internship." },
   { icon: Code2, title: "Design + Engineering", text: "I write the logic and craft the experience around it." },
+  { icon: Database, title: "Data Engineering", text: "Built ETL workflows, SQL databases, cloud data systems, and scalable data pipelines for real-world applications." },
 ];
 
 export function About() {
@@ -16,8 +17,8 @@ export function About() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="About"
-          title={<>Engineer of <span className="text-gradient">logic & experience</span></>}
-          description="AI & Data Science student with hands-on experience in full-stack development, AI systems, and UI/UX design — building things that feel as good as they perform."
+          title={<>AI Engineer, Data Engineer & <span className="text-gradient">Full-Stack Developer</span></>}
+          description="I am an Artificial Intelligence & Data Science student passionate about building intelligent systems, scalable data solutions, and impactful digital products. My experience spans AI/ML, Data Engineering, cloud platforms, ETL pipelines, database systems, and full-stack application development."
         />
         <div className="mb-12 grid gap-6 md:grid-cols-[280px_1fr] md:items-center">
           <motion.div
@@ -54,7 +55,28 @@ export function About() {
             </ul>
           </motion.div>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="glass mt-6 rounded-xl p-6"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-foreground/60">What I Work On</p>
+          <div className="mt-4 grid gap-3 text-sm text-foreground/80 sm:grid-cols-2">
+            {[
+              "Artificial Intelligence & Machine Learning",
+              "Data Engineering & ETL Pipelines",
+              "Cloud Data Platforms",
+              "Full-Stack Development",
+              "APIs & System Design",
+              "Database Engineering",
+            ].map((item) => (
+              <span key={item} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-2">{item}</span>
+            ))}
+          </div>
+        </motion.div>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {cards.map((c, i) => (
             <motion.div
               key={c.title}
