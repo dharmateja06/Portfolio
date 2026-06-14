@@ -4,7 +4,7 @@ import Photo from "../../photo2.png";
 export function About() {
   return (
     <section id="about" className="relative py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mt-4 h-px w-full bg-zinc-900" />
 
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-14">
@@ -18,7 +18,7 @@ export function About() {
             <img
               src={Photo}
               alt="Dharma Teja R C"
-              className="h-[320px] w-full max-w-[360px] object-cover object-top md:h-[380px] md:max-w-[420px] lg:h-[430px] lg:max-w-[460px]"
+              className="mx-auto h-[280px] w-full max-w-[320px] object-cover object-top sm:h-[330px] sm:max-w-[360px] md:h-[380px] md:max-w-[420px] lg:h-[430px] lg:max-w-[460px]"
               style={{ maskImage: "linear-gradient(to top, transparent 0%, black 35%)", WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 35%)" }}
             />
           </motion.div>
@@ -30,10 +30,10 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.08 }}
             className="lg:col-span-7"
           >
-            <h2 className="max-w-2xl text-4xl font-black uppercase tracking-[-0.05em] text-white md:text-5xl">
+            <h2 className="max-w-2xl text-3xl font-black uppercase tracking-[-0.05em] text-white sm:text-4xl md:text-5xl">
               AI Engineer, Data Engineer & Full-Stack Developer.
             </h2>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
+            <p className="mt-6 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base md:text-lg">
               An Artificial Intelligence & Data Science student at REVA University focused on bridging intelligent machine learning models with production-ready software. Experienced in crafting scalable data systems, automated pipelines, and responsive interfaces.
             </p>
 

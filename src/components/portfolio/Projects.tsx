@@ -108,13 +108,13 @@ function TiltCard({ p }: { p: Project }) {
 export function Projects() {
   return (
     <section id="projects" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Selected work"
           title={<>Projects that <span className="text-gradient">ship & think</span></>}
           description="From RAG systems and computer vision to live client websites — a mix of intelligence and craft."
         />
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {projects.map((p) => <TiltCard key={p.title} p={p} />)}
         </div>
       </div>

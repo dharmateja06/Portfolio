@@ -25,6 +25,7 @@ export function App() {
         <SmoothScroll />
       </Suspense>
       <CursorGlow />
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-40 h-20 bg-black/25 backdrop-blur-xl" />
       <Navbar />
       <main className="relative z-10">
         <Hero />

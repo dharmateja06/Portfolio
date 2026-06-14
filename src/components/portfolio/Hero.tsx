@@ -33,7 +33,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <HeroScene />
       </div>
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 text-center">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1 }}
-          className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-7xl md:text-8xl"
+          className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
         >
           Hi, I'm <span className="text-gradient">Dharma Teja R C</span>
         </motion.h1>
@@ -60,7 +60,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-6 font-mono text-base text-foreground/80 sm:text-lg md:text-xl"
+          className="mt-6 max-w-2xl font-mono text-sm text-foreground/80 sm:text-base md:text-lg lg:text-xl"
         >
           <span className="text-accent">&gt;</span> {typed}
           <span className="ml-0.5 inline-block h-5 w-[2px] translate-y-0.5 bg-primary animate-blink" />
@@ -70,7 +70,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="mt-5 max-w-xl text-sm text-muted-foreground sm:text-base"
+          className="mt-5 max-w-xl px-1 text-sm text-muted-foreground sm:px-0 sm:text-base"
         >
           B.Tech in Artificial Intelligence & Data Science. I build AI systems,
           scalable data pipelines, and production-ready web applications.
@@ -80,18 +80,18 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.7 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          className="mt-10 flex w-full max-w-md flex-wrap items-center justify-center gap-3 px-2 sm:max-w-xl sm:gap-4 sm:px-0"
         >
           <a
             href="#projects"
-            className="group relative inline-flex items-center gap-2 rounded-none border border-white/10 bg-[#c5b395] px-6 py-3 text-sm font-semibold text-black shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#d8c8a8] before:absolute before:inset-0 before:-z-10 before:rounded-none before:border before:border-white/10 before:bg-white/8 before:translate-x-1 before:translate-y-1"
+            className="group relative inline-flex flex-1 items-center justify-center gap-2 rounded-none border border-white/10 bg-[#c5b395] px-5 py-3 text-sm font-semibold text-black shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#d8c8a8] before:absolute before:inset-0 before:-z-10 before:rounded-none before:border before:border-white/10 before:bg-white/8 before:translate-x-1 before:translate-y-1 sm:flex-none"
           >
             View Projects
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
           </a>
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 rounded-none border border-white/10 bg-white/6 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10 before:absolute before:inset-0 before:-z-10 before:rounded-none before:border before:border-white/10 before:bg-white/5 before:translate-x-1 before:translate-y-1"
+            className="group relative inline-flex flex-1 items-center justify-center gap-2 rounded-none border border-white/10 bg-white/6 px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10 before:absolute before:inset-0 before:-z-10 before:rounded-none before:border before:border-white/10 before:bg-white/5 before:translate-x-1 before:translate-y-1 sm:flex-none"
           >
             <Mail className="h-4 w-4" /> Contact Me
           </a>
