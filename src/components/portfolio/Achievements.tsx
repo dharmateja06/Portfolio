@@ -11,7 +11,7 @@ const items = [
 
 export function Achievements() {
   return (
-    <section id="achievements" className="relative py-16 sm:py-20">
+    <section id="achievements" className="relative py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeading
           eyebrow="Recognition"

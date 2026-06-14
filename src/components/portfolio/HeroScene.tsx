@@ -49,7 +49,7 @@ function Lattice() {
 function Particles() {
   const ref = useRef<THREE.Points>(null);
   const positions = useMemo(() => {
-    const n = 400;
+    const n = 180;
     const arr = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) {
       arr[i * 3] = (Math.random() - 0.5) * 14;
@@ -77,8 +77,10 @@ function Particles() {
 export function HeroScene() {
   return (
     <Canvas
-      dpr={[1, 2]}
+      dpr={[1, 1.2]}
       camera={{ position: [0, 1.5, 5], fov: 50 }}
+      gl={{ antialias: false, alpha: true, powerPreference: "low-power" }}
+      performance={{ min: 0.5, max: 1, debounce: 100 }}
       className="!absolute inset-0"
     >
       <Suspense fallback={null}>

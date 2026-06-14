@@ -17,7 +17,10 @@ const SmoothScroll = lazy(() =>
 
 export function App() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-hero noise">
+        <div className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_82%)]" />
+      </div>
       <Suspense fallback={null}>
         <SmoothScroll />
       </Suspense>

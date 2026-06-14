@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { HeroScene } from "./HeroScene";
 
 const roles = ["AI Engineer", "Data Engineer", "Full-Stack Developer", "ML Engineer", "Problem Solver"];
@@ -80,37 +80,21 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.7 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <a
             href="#projects"
-            className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:opacity-90"
+            className="group relative inline-flex items-center gap-2 rounded-none border border-white/10 bg-[#c5b395] px-6 py-3 text-sm font-semibold text-black shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#d8c8a8] before:absolute before:inset-0 before:-z-10 before:rounded-none before:border before:border-white/10 before:bg-white/8 before:translate-x-1 before:translate-y-1"
           >
             View Projects
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
           </a>
           <a
             href="#contact"
-            className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-white/5"
+            className="group relative inline-flex items-center gap-2 rounded-none border border-white/10 bg-white/6 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10 before:absolute before:inset-0 before:-z-10 before:rounded-none before:border before:border-white/10 before:bg-white/5 before:translate-x-1 before:translate-y-1"
           >
             <Mail className="h-4 w-4" /> Contact Me
           </a>
-          <a
-            href="https://tridalanutrafood.com/"
-            target="_blank" rel="noreferrer"
-            className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-white/5"
-          >
-            <Sparkles className="h-4 w-4 text-foreground/70" /> View Live Work
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground"
-        >
-          scroll ↓
         </motion.div>
       </div>
     </section>

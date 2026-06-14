@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function Identity() {
   return (
-    <section className="relative py-16 sm:py-20">
+    <section className="relative py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 12 }}

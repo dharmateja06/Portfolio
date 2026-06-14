@@ -1,6 +1,5 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
-import type { MouseEvent } from "react";
 import { SectionHeading } from "./SectionHeading";
 
 type Project = {
@@ -68,23 +67,8 @@ const projects: Project[] = [
 ];
 
 function TiltCard({ p }: { p: Project }) {
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-50, 50], [8, -8]), { stiffness: 200, damping: 20 });
-  const ry = useSpring(useTransform(mx, [-50, 50], [-8, 8]), { stiffness: 200, damping: 20 });
-
-  const onMove = (e: MouseEvent<HTMLDivElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    mx.set(e.clientX - r.left - r.width / 2);
-    my.set(e.clientY - r.top - r.height / 2);
-  };
-  const onLeave = () => { mx.set(0); my.set(0); };
-
   return (
     <motion.div
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -123,7 +107,7 @@ function TiltCard({ p }: { p: Project }) {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-16 sm:py-20">
+    <section id="projects" className="relative py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="Selected work"

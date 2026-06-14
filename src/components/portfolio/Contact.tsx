@@ -48,7 +48,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-16 sm:py-20">
+    <section id="contact" className="relative py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Contact"
@@ -116,7 +116,7 @@ export function Contact() {
           </motion.form>
         </div>
       </div>
-      <footer className="mx-auto mt-12 max-w-7xl border-t border-white/5 px-6 py-8 text-center font-mono text-[11px] text-muted-foreground">
+      <footer className="mx-auto mt-8 max-w-7xl border-t border-white/5 px-6 py-4 text-center font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
         © {new Date().getFullYear()} Dharma Teja R C · Designed & built with care.
       </footer>
     </section>
