@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 
 const timeline = [
@@ -14,55 +15,81 @@ const timeline = [
   },
   {
     role: "Research Intern",
-    org: "Center of Excellence for Geopolitics and International Studies, REVA University",
+    org: "Centre of Excellence for Geopolitics & International Studies, REVA University",
     period: "May 2025 — Jun 2025",
     points: [
-      "Analyzed large-scale research datasets and technical reports.",
-      "Applied AI-driven methodologies for data analysis and insights generation.",
-      "Contributed to research publications involving technology and data-centric studies.",
+      "Conducted research on Artificial Intelligence, Cybersecurity, and Neurotechnology with a focus on global strategic applications.",
+      "Studied the role of emerging technologies in modern warfare and cybersecurity.",
+      "Co-authored a published research article on technology-driven warfare and cyber strategy.",
     ],
+    link: "https://geopolitics.reva.edu.in/circular-detail/tech-war-in-the-contemporary-world-a-case-study-of-neuro-cyber-warfare",
   },
 ];
 
 export function Experience() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <section id="experience" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-4xl px-6">
-        <SectionHeading
-          eyebrow="Journey"
-          title={<>Experience <span className="text-gradient">timeline</span></>}
-        />
-        <div className="relative">
-          <div className="absolute left-3 top-2 h-full w-px bg-white/10 md:left-4" />
-          <div className="space-y-8">
-            {timeline.map((t, i) => (
-              <motion.div
-                key={t.role}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative pl-12 md:pl-16"
+    <section id="experience" className="relative bg-[#f7f7f2] py-24 text-black sm:py-32">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading eyebrow="Journey" title="Experience timeline." align="left" />
+        <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="space-y-3">
+            {timeline.map((item, index) => (
+              <button
+                key={item.role}
+                type="button"
+                onMouseEnter={() => setActiveIndex(index)}
+                onFocus={() => setActiveIndex(index)}
+                className={`flex w-full items-center justify-between rounded-[1.2rem] border px-5 py-4 text-left transition ${
+                  activeIndex === index
+                    ? "border-cyan-300 bg-cyan-50 text-slate-900"
+                    : "border-slate-200 bg-white text-slate-700"
+                }`}
               >
-                <span className="absolute left-1.5 top-2.5 h-2.5 w-2.5 rounded-full border border-white/30 bg-background md:left-2.5" />
-                <div className="glass rounded-xl p-6">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-display text-xl font-semibold">{t.role}</h3>
-                    <span className="font-mono text-xs text-foreground/70">{t.period}</span>
-                  </div>
-                  <p className="mt-1 text-sm text-muted-foreground">{t.org}</p>
-                  <ul className="mt-4 space-y-2 text-sm text-foreground/80">
-                    {t.points.map((p) => (
-                      <li key={p} className="flex gap-2">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-foreground/50" />
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
+                <span className="font-display text-lg font-black tracking-[-0.02em]">
+                  {item.role}
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-500">
+                  {item.period}
+                </span>
+              </button>
             ))}
           </div>
+
+          <motion.div
+            key={timeline[activeIndex].role}
+            initial={{ opacity: 0, x: 16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.35 }}
+            className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_20px_80px_rgba(15,23,42,0.06)] sm:p-10"
+          >
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-500">
+              {timeline[activeIndex].period}
+            </p>
+            <h3 className="mt-4 font-display text-3xl font-black tracking-[-0.03em] text-slate-900 sm:text-4xl">
+              {timeline[activeIndex].role}
+            </h3>
+            <p className="mt-3 text-base text-slate-600">{timeline[activeIndex].org}</p>
+            {timeline[activeIndex].link ? (
+              <a
+                href={timeline[activeIndex].link}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex items-center text-sm font-semibold text-slate-900 underline decoration-cyan-500 underline-offset-4"
+              >
+                Read article
+              </a>
+            ) : null}
+            <ul className="mt-8 space-y-3 text-sm leading-7 text-slate-700">
+              {timeline[activeIndex].points.map((point) => (
+                <li key={point} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </div>
     </section>

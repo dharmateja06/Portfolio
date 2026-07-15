@@ -1,100 +1,88 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { ArrowRight, Mail } from "lucide-react";
-import { HeroScene } from "./HeroScene";
-
-const roles = ["AI Engineer", "Data Engineer", "Full-Stack Developer", "ML Engineer", "Problem Solver"];
-
-function useTyping(words: string[]) {
-  const [i, setI] = useState(0);
-  const [text, setText] = useState("");
-  const [del, setDel] = useState(false);
-  useEffect(() => {
-    const w = words[i];
-    const t = setTimeout(() => {
-      if (!del) {
-        setText(w.slice(0, text.length + 1));
-        if (text.length + 1 === w.length) setTimeout(() => setDel(true), 1400);
-      } else {
-        setText(w.slice(0, text.length - 1));
-        if (text.length - 1 === 0) { setDel(false); setI((i + 1) % words.length); }
-      }
-    }, del ? 40 : 80);
-    return () => clearTimeout(t);
-  }, [text, del, i, words]);
-  return text;
-}
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export function Hero() {
-  const typed = useTyping(roles);
   return (
-    <section id="hero" className="relative isolate min-h-screen overflow-hidden bg-hero noise">
-      <div className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
-      <div className="absolute inset-0 z-0">
-        <HeroScene />
-      </div>
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+    <section id="hero" className="relative overflow-hidden bg-[#FFFFFF] py-24 sm:py-32">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,255,0,0.16),transparent_32%)]" />
+      <div className="relative mx-auto grid min-h-[88vh] w-full max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:items-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="glass mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-muted-foreground"
+          className="max-w-3xl"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyber opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-cyber" />
-          </span>
-          Available for collaborations · 2026
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#111111]/12 bg-white px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-[#111111] shadow-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#D4FF00]" />
+            Research · Design · Engineering
+          </div>
+          <h1 className="mt-8 font-display text-[clamp(3rem,7.5vw,7.3rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-[#111111]">
+            Building the
+            <span className="mt-2 block font-sans lowercase italic text-[#111111]">
+              <em className="font-serif-accent text-[1.08em] font-normal italic">future</em>
+            </span>
+          </h1>
+          <p className="mt-8 max-w-2xl text-lg leading-[1.8] text-[#111111]/72 sm:text-xl">
+            I build AI-native products, data systems, and polished interfaces that move from
+            research to shipped reality with calm precision and velocity.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <a href="#contact" className="cta-pill px-6 py-3.5 text-sm sm:text-base">
+              Start a project
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="#projects"
+              className="inline-flex items-center rounded-full border border-[#111111]/15 px-5 py-3.5 text-sm font-semibold text-[#111111] transition hover:border-[#D4FF00] hover:text-[#111111]"
+            >
+              Explore the work
+            </a>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {[
+              { label: "AI systems" },
+              { label: "Data platforms" },
+              { label: "Product interfaces" },
+            ].map((item) => (
+              <span
+                key={item.label}
+                className="inline-flex items-center rounded-full border border-[#111111]/12 bg-[#FBFBF7] px-3.5 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#111111]/80"
+              >
+                <span className="mr-2 h-2 w-2 rounded-full bg-[#D4FF00]" />
+                {item.label}
+              </span>
+            ))}
+          </div>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1 }}
-          className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
-        >
-          Hi, I'm <span className="text-gradient">Dharma Teja R C</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-6 max-w-2xl font-mono text-sm text-foreground/80 sm:text-base md:text-lg lg:text-xl"
-        >
-          <span className="text-accent">&gt;</span> {typed}
-          <span className="ml-0.5 inline-block h-5 w-[2px] translate-y-0.5 bg-primary animate-blink" />
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-          className="mt-5 max-w-xl px-1 text-sm text-muted-foreground sm:px-0 sm:text-base"
-        >
-          B.Tech in Artificial Intelligence & Data Science. I build AI systems,
-          scalable data pipelines, and production-ready web applications.
-        </motion.p>
-
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.7 }}
-          className="mt-10 flex w-full max-w-md flex-wrap items-center justify-center gap-3 px-2 sm:max-w-xl sm:gap-4 sm:px-0"
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="rounded-[2rem] border border-[#111111]/12 bg-[#FFFFFF] p-6 shadow-[0_20px_80px_rgba(17,17,17,0.05)] sm:p-8"
         >
-          <a
-            href="#projects"
-            className="group relative inline-flex flex-1 items-center justify-center gap-2 rounded-none border border-white/10 bg-[#c5b395] px-5 py-3 text-sm font-semibold text-black shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#d8c8a8] before:absolute before:inset-0 before:-z-10 before:rounded-none before:border before:border-white/10 before:bg-white/8 before:translate-x-1 before:translate-y-1 sm:flex-none"
-          >
-            View Projects
-            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#contact"
-            className="group relative inline-flex flex-1 items-center justify-center gap-2 rounded-none border border-white/10 bg-white/6 px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10 before:absolute before:inset-0 before:-z-10 before:rounded-none before:border before:border-white/10 before:bg-white/5 before:translate-x-1 before:translate-y-1 sm:flex-none"
-          >
-            <Mail className="h-4 w-4" /> Contact Me
-          </a>
+          <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-[#111111]/75">
+            <Sparkles className="h-4 w-4 text-[#111111]" />
+            Current focus
+          </div>
+          <div className="mt-6 space-y-3">
+            {[
+              { index: "01", text: "AI systems with measurable product outcomes" },
+              { index: "02", text: "Data infrastructure designed for speed and trust" },
+              { index: "03", text: "Interfaces that feel as sharp as the engineering behind them" },
+            ].map((item) => (
+              <motion.div
+                key={item.index}
+                whileHover={{ x: 4, letterSpacing: "0.04em" }}
+                className="flex items-start gap-4 rounded-[1.2rem] border border-[#111111]/10 bg-[#FBFBF7] px-4 py-4 text-sm leading-7 text-[#111111]/78 transition"
+              >
+                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-[#111111]">
+                  {item.index}
+                </span>
+                <span>{item.text}</span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

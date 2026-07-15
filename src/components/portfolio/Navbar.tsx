@@ -1,44 +1,64 @@
 import { motion } from "framer-motion";
+import { Github, Linkedin } from "lucide-react";
+import { contact } from "@/data/portfolio";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
-  { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
 
 export function Navbar() {
   return (
     <motion.header
-      initial={{ y: -30, opacity: 0 }}
+      initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed left-0 right-0 top-0 z-50 flex justify-center px-4 pt-5"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed left-0 right-0 top-0 z-50 border-b border-[#111111]/10 bg-white/90 backdrop-blur"
     >
-      <nav className="glass flex w-full max-w-3xl items-center justify-between rounded-full border border-white/10 bg-black/30 px-5 py-2.5 shadow-[0_18px_45px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
-        <a href="#hero" className="font-display text-sm font-bold tracking-tight whitespace-nowrap text-foreground">
-          Dharma Teja R C
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#hero" className="flex items-center gap-3">
+          <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#D4FF00]" />
+          <span className="font-display text-[0.8rem] font-black uppercase tracking-[0.32em] text-[#111111] sm:text-[0.9rem]">
+            Dharma teja rc
+          </span>
         </a>
-        <ul className="hidden items-center gap-1 md:flex">
+
+        <ul className="hidden items-center justify-center gap-6 md:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="rounded-full px-3 py-1.5 text-xs text-muted-foreground transition hover:bg-white/5 hover:text-foreground"
+                className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#111111]/70 transition hover:text-[#111111]"
               >
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="rounded-full bg-foreground px-4 py-1.5 text-xs font-semibold text-background transition hover:opacity-90"
-        >
-          Let's talk
-        </a>
+
+        <div className="flex items-center justify-end gap-2">
+          <a
+            href={contact.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            className="icon-btn"
+          >
+            <Github className="h-4 w-4" />
+          </a>
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+            className="icon-btn"
+          >
+            <Linkedin className="h-4 w-4" />
+          </a>
+        </div>
       </nav>
     </motion.header>
   );

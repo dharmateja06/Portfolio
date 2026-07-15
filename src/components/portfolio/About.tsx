@@ -1,109 +1,97 @@
 import { motion } from "framer-motion";
 import Photo from "../../photo2.png";
 
+const capabilities = ["AI engineering", "Data systems", "Product design", "Cloud delivery"];
+
+const leadershipItems = [
+  { title: "Vice President", meta: "REVA Cybersecurity Club" },
+  { title: "Coordinator", meta: "Inklings Club, FACE Student Forum" },
+];
+
 export function About() {
   return (
-    <section id="about" className="relative py-24 sm:py-28">
+    <section id="about" className="relative bg-[#FFFFFF] py-24 sm:py-32">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mt-4 h-px w-full bg-zinc-900" />
-
-        <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-14">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5"
-          >
-            <img
-              src={Photo}
-              alt="Dharma Teja R C"
-              className="mx-auto h-[280px] w-full max-w-[320px] object-cover object-top sm:h-[330px] sm:max-w-[360px] md:h-[380px] md:max-w-[420px] lg:h-[430px] lg:max-w-[460px]"
-              style={{ maskImage: "linear-gradient(to top, transparent 0%, black 35%)", WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 35%)" }}
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.08 }}
-            className="lg:col-span-7"
-          >
-            <h2 className="max-w-2xl text-3xl font-black uppercase tracking-[-0.05em] text-white sm:text-4xl md:text-5xl">
-              AI Engineer, Data Engineer & Full-Stack Developer.
-            </h2>
-            <p className="mt-6 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base md:text-lg">
-              An Artificial Intelligence & Data Science student at REVA University focused on bridging intelligent machine learning models with production-ready software. Experienced in crafting scalable data systems, automated pipelines, and responsive interfaces.
-            </p>
-
-            <div className="mt-16 border-t border-zinc-900 pt-6">
-              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-zinc-500">COMMUNITY LEADERSHIP // CULTURE BUILDING</p>
-              <div className="mt-6 space-y-0">
-                <article className="border-t border-zinc-900 py-4">
-                  <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-                    <span className="font-mono text-[0.88rem] uppercase tracking-[0.35em] text-[#c5b395]">[ Vice President ]</span>
-                    <span className="text-base font-semibold text-white md:text-lg">REVA Cybersecurity Club</span>
-                  </div>
-                </article>
-                <article className="border-t border-zinc-900 py-4">
-                  <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-                    <span className="font-mono text-[0.88rem] uppercase tracking-[0.35em] text-[#c5b395]">[ Coordinator ]</span>
-                    <span className="text-base font-semibold text-white md:text-lg">Inklings Club, FACE Student Forum</span>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <motion.section
+        <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.12 }}
-          className="mt-20 border-t border-zinc-900 pt-8"
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="rounded-[2.25rem] border border-[#111111]/12 bg-[#FFFFFF] p-6 shadow-[0_20px_80px_rgba(17,17,17,0.04)] sm:p-8 lg:p-10"
         >
-          <div className="grid gap-10 lg:grid-cols-[0.45fr_0.55fr] lg:items-start">
-            <div className="lg:sticky lg:top-24">
-              <p className="text-[0.65rem] uppercase tracking-[0.35em] text-zinc-500">WHAT I WORK ON</p>
-              <h3 className="mt-4 max-w-md text-3xl font-semibold tracking-[-0.05em] text-white md:text-4xl lg:text-5xl">
-                Building intelligent systems, scalable platforms, and polished digital experiences.
-              </h3>
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:items-center">
+            <div className="flex flex-col gap-6">
+              <div className="relative flex justify-center lg:justify-start">
+                <div className="relative h-[320px] w-[260px] overflow-hidden rounded-[999px] border border-[#111111]/12 bg-[#F7F7F2] p-3 shadow-inner sm:h-[360px] sm:w-[300px]">
+                  <img
+                    src={Photo}
+                    alt="Dharma Teja R C"
+                    className="h-full w-full rounded-[999px] object-cover object-top"
+                  />
+                </div>
+                <div className="absolute -bottom-3 right-4 hidden h-16 w-16 rounded-full border border-[#111111]/10 bg-[#D4FF00] sm:block" />
+              </div>
+              <div className="rounded-[1.5rem] border border-[#111111]/10 bg-[#FBFBF7] p-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#111111]/65">
+                  Current focus
+                </p>
+                <p className="mt-2 text-sm leading-7 text-[#111111]/75">
+                  Bridging intelligence, systems thinking, and polished product execution.
+                </p>
+              </div>
             </div>
 
-            <div className="space-y-0">
-              {[
-                {
-                  title: "Artificial Intelligence & ML",
-                  description: "Practical AI systems, experimentation, and model-driven products focused on real business outcomes.",
-                },
-                {
-                  title: "Data Engineering & Pipelines",
-                  description: "Reliable ETL workflows, optimized schemas, and cloud-ready data infrastructure for modern teams.",
-                },
-                {
-                  title: "Full-Stack Development",
-                  description: "Responsive interfaces and backend integrations designed to make data and AI feel accessible.",
-                },
-                {
-                  title: "Cloud Data Platforms",
-                  description: "Connected systems, analytics workflows, and deployment patterns that scale with the product.",
-                },
-              ].map((item, idx) => (
-                <article key={item.title} className="border-t border-zinc-900 py-5">
-                  <div className="grid gap-3 md:grid-cols-[88px_1fr] md:items-start">
-                    <span className="font-mono text-[0.68rem] uppercase tracking-[0.35em] text-[#c5b395]">0{idx + 1}</span>
-                    <div>
-                      <h4 className="text-xl font-semibold tracking-[-0.03em] text-white md:text-2xl">{item.title}</h4>
-                      <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-400 md:text-[0.95rem]">{item.description}</p>
-                    </div>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#111111]/65">
+                About Me
+              </p>
+              <h2 className="mt-4 max-w-2xl font-display text-3xl font-black uppercase tracking-[-0.05em] text-[#111111] sm:text-4xl md:text-5xl">
+                Designing the <span className="font-serif-accent lowercase italic">signal</span>{" "}
+                behind the system.
+              </h2>
+
+              <div className="mt-8 space-y-6 text-sm leading-8 text-[#111111]/75 sm:text-[0.95rem]">
+                <p>
+                  I’m an AI engineer and full-stack developer focused on shaping reliable software that feels as refined as it is functional.
+                  My work spans machine learning, scalable data systems, and elegant interfaces that make complex technology easier to understand.
+                </p>
+                <p>
+                  I enjoy building deeply considered digital products, whether that means streamlining workflows, designing thoughtful data pipelines,
+                  or turning technical complexity into experiences that feel effortless.
+                </p>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                {capabilities.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center rounded-full border border-[#111111]/12 bg-[#FBFBF7] px-3.5 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[#111111]/75"
+                  >
+                    <span className="mr-2 h-2 w-2 rounded-full bg-[#D4FF00]" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-8 grid gap-4 lg:grid-cols-2">
+                <div className="rounded-[1.25rem] border border-[#111111]/10 bg-[#FBFBF7] p-5">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#111111]/65">
+                    Leadership
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    {leadershipItems.map((item) => (
+                      <div key={item.title}>
+                        <p className="text-sm font-semibold text-[#111111]">{item.title}</p>
+                        <p className="mt-1 text-sm text-[#111111]/70">{item.meta}</p>
+                      </div>
+                    ))}
                   </div>
-                </article>
-              ))}
+                </div>
+
+              </div>
             </div>
           </div>
-        </motion.section>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,121 +1,94 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import { projects, type Project } from "@/data/portfolio";
 import { SectionHeading } from "./SectionHeading";
 
-type Project = {
-  title: string;
-  category: string;
-  description: string;
-  tech: string[];
-  live?: string;
-  github?: string;
-  accent: string;
-};
-
-const projects: Project[] = [
-  {
-    title: "Policy Lens AI",
-    category: "RAG · NLP · Decision Support",
-    description:
-      "Retrieval-Augmented Generation system that analyzes government schemes — extracting, summarizing, and surfacing intelligent insights from dense policy documents.",
-    tech: ["Python", "RAG", "LangChain", "NLP"],
-    accent: "from-violet-500 to-indigo-500",
-  },
-  {
-    title: "AgriTech AI Assistant",
-    category: "Computer Vision · Agriculture",
-    description:
-      "CNN-based plant disease detection at 89% accuracy, with crop recommendation, soil prediction and offline multilingual support for rural users.",
-    tech: ["CNN", "TensorFlow", "Flask", "React"],
-    accent: "from-emerald-400 to-cyan-500",
-  },
-  {
-    title: "Image Guard",
-    category: "AI Verification · Computer Vision",
-    description:
-      "Image-based location authenticity detection with explainable computer-vision outputs — verifying whether an image truly belongs to its claimed origin.",
-    tech: ["Python", "OpenCV", "Deep Learning"],
-    accent: "from-blue-500 to-fuchsia-500",
-  },
-  {
-    title: "Tridala Nutrafood",
-    category: "Production Site · Internship",
-    description:
-      "Real-world e-commerce site shipped during my Dev Creations internship — UI, frontend structure, responsiveness and integration for a live client.",
-    tech: ["React", "Responsive", "Integration"],
-    live: "https://tridalanutrafood.com/",
-    accent: "from-amber-400 to-rose-500",
-  },
-  {
-    title: "Vertex Advisory",
-    category: "UI / UX Design",
-    description:
-      "Modern advisory brand experience focused on professional positioning, clear user flow and a confident visual identity.",
-    tech: ["UI/UX", "Figma", "Brand"],
-    live: "https://vertexadvisory.in/",
-    accent: "from-cyan-400 to-blue-600",
-  },
-  {
-    title: "Tridala — UI/UX",
-    category: "Product Design",
-    description:
-      "Clean, product-focused interface for a nutraceutical brand, with strong usability and a refined visual system.",
-    tech: ["Figma", "UX", "Design"],
-    live: "https://tridalanutrafood.com/",
-    accent: "from-fuchsia-500 to-purple-600",
-  },
+const layoutClasses = [
+  "lg:col-span-6",
+  "lg:col-span-6",
+  "lg:col-span-6",
+  "lg:col-span-6",
+  "lg:col-span-6",
+  "lg:col-span-6",
 ];
 
-function TiltCard({ p }: { p: Project }) {
+function ProjectCard({ p, index }: { p: Project; index: number }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6 }}
-      className="glass relative flex h-full flex-col overflow-hidden rounded-xl p-6 will-change-transform"
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, delay: index * 0.06 }}
+      whileHover={{ y: -6, scale: 1.02 }}
+      className={`group overflow-hidden rounded-[1.85rem] border border-[#111111]/8 bg-white/80 shadow-[0_10px_35px_rgba(17,17,17,0.04)] backdrop-blur-sm ${layoutClasses[index % layoutClasses.length]}`}
     >
-      <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">{p.category}</span>
-      <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight">{p.title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {p.tech.map((t) => (
-          <span key={t} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[11px] text-foreground/80">{t}</span>
-        ))}
+      <div className={`relative flex min-h-[240px] flex-col justify-between overflow-hidden bg-gradient-to-br p-7 sm:p-8 ${p.visual}`}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_36%)]" />
+        <div className="relative flex items-center justify-between">
+          <span className="rounded-full border border-white/70 bg-white/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-slate-700">
+            {p.category}
+          </span>
+          <span className="font-display text-[clamp(2rem,5vw,3rem)] font-black leading-none text-slate-300">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
+        <div className="relative mt-10">
+          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-slate-600">
+            Featured build
+          </p>
+          <h3 className="mt-3 font-display text-2xl font-black tracking-[-0.03em] text-slate-900 sm:text-3xl">
+            {p.title}
+          </h3>
+        </div>
       </div>
-      <div className="mt-auto flex items-center gap-2 pt-6">
-        {p.live && (
+
+      <div className="flex h-full flex-col justify-between px-7 py-7 sm:px-8 sm:py-8">
+        <div>
+          <p className="text-sm leading-7 text-slate-600">{p.description}</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {p.tech.map((t) => (
+              <span key={t} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-[11px] font-medium text-slate-700">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+        {p.live ? (
           <a
-            href={p.live} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-xs font-semibold text-background transition hover:opacity-90"
+            href={p.live}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition group-hover:text-[#2563eb]"
           >
-            <ExternalLink className="h-3.5 w-3.5" /> Live Demo
+            View project
+            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            <ExternalLink className="ml-1 h-3 w-3 opacity-0 transition group-hover:opacity-100" />
           </a>
-        )}
-        {p.github && (
-          <a
-            href={p.github} target="_blank" rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:bg-white/5"
-          >
-            <Github className="h-3.5 w-3.5" /> Code
-          </a>
+        ) : (
+          <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-neutral-500">
+            Read more
+            <ArrowRight className="h-4 w-4" />
+          </span>
         )}
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-20 sm:py-24">
+    <section id="projects" className="relative bg-[#f7f7f2] py-28 sm:py-36">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Selected work"
-          title={<>Projects that <span className="text-gradient">ship & think</span></>}
+          eyebrow="My Work"
+          title="Featured Projects"
           description="From RAG systems and computer vision to live client websites — a mix of intelligence and craft."
+          align="left"
         />
-        <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {projects.map((p) => <TiltCard key={p.title} p={p} />)}
+        <div className="grid gap-4 lg:grid-cols-12">
+          {projects.map((p, i) => (
+            <ProjectCard key={p.title} p={p} index={i} />
+          ))}
         </div>
       </div>
     </section>

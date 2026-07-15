@@ -25,11 +25,12 @@ const education = [
 
 export function Education() {
   return (
-    <section id="education" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-5xl px-6">
+    <section id="education" className="relative py-20 sm:py-28">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Education"
-          title={<>Academic <span className="text-gradient">foundation</span></>}
+          title="Academic foundation."
+          align="left"
         />
         <div className="grid gap-5 md:grid-cols-2">
           {education.map((e, i) => (
@@ -39,16 +40,16 @@ export function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="glass relative overflow-hidden rounded-xl p-6"
+              className="agency-card rounded-2xl p-6 hover:scale-100 sm:p-8"
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
-                <GraduationCap className="h-4 w-4 text-foreground/80" />
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-neutral-800 bg-black">
+                <GraduationCap className="h-4 w-4 text-electric" />
               </div>
-              <h3 className="font-display text-lg font-semibold">{e.school}</h3>
-              <p className="mt-1 text-sm text-foreground/80">{e.degree}</p>
-              <div className="mt-4 flex flex-wrap items-end justify-between gap-3 border-t border-white/8 pt-4">
-                <span className="font-mono text-xs text-foreground/70">{e.period}</span>
-                <span className="font-mono text-sm font-semibold text-foreground/95">{e.score}</span>
+              <h3 className="font-display text-lg font-bold text-white">{e.school}</h3>
+              <p className="mt-1 text-sm text-neutral-300">{e.degree}</p>
+              <div className="mt-4 flex flex-wrap items-end justify-between gap-3 border-t border-neutral-800 pt-4">
+                <span className="font-mono text-xs text-neutral-500">{e.period}</span>
+                <span className="font-mono text-sm font-semibold text-electric">{e.score}</span>
               </div>
             </motion.div>
           ))}

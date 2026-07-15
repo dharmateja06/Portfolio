@@ -34,51 +34,42 @@
   --color-neon-foreground: var(--neon-foreground);
   --color-violet: var(--violet);
   --color-cyber: var(--cyber);
-  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --color-electric: var(--electric);
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --font-sans: "Inter", system-ui, sans-serif;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
-  --animate-shimmer: shimmer 2.5s linear infinite;
   --animate-marquee: marquee 30s linear infinite;
-  --animate-blink: blink 1s step-end infinite;
+  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
 }
 
 :root {
-  --radius: 0.875rem;
-  /* Classic charcoal */
-  --background: oklch(0.16 0.005 260);
-  --foreground: oklch(0.96 0.005 260);
-  --card: oklch(0.2 0.006 260 / 0.6);
-  --card-foreground: oklch(0.96 0.005 260);
-  --popover: oklch(0.18 0.006 260);
-  --popover-foreground: oklch(0.96 0.005 260);
-  /* Single restrained accent (warm off-white) */
-  --primary: oklch(0.92 0.005 260);
-  --primary-foreground: oklch(0.16 0.005 260);
-  --secondary: oklch(0.24 0.006 260);
-  --secondary-foreground: oklch(0.96 0.005 260);
-  --muted: oklch(0.24 0.005 260);
-  --muted-foreground: oklch(0.65 0.01 260);
-  --accent: oklch(0.7 0.05 230);
-  --accent-foreground: oklch(0.16 0.005 260);
-  --destructive: oklch(0.6 0.18 25);
-  --destructive-foreground: oklch(0.96 0.005 260);
-  --border: oklch(1 0 0 / 7%);
-  --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.7 0.05 230);
-  /* Custom (kept for compat, all neutralized) */
-  --neon: oklch(0.92 0.005 260);
-  --neon-foreground: oklch(0.16 0.005 260);
-  --violet: oklch(0.6 0.02 260);
-  --cyber: oklch(0.75 0.02 230);
-
-  --gradient-hero: linear-gradient(180deg, oklch(0.16 0.005 260), oklch(0.13 0.005 260));
-  --gradient-violet-blue: linear-gradient(135deg, oklch(0.96 0.005 260), oklch(0.78 0.01 260));
-  --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 0.05), oklch(1 0 0 / 0.015));
-  --shadow-neon: 0 1px 0 oklch(1 0 0 / 0.04) inset;
-  --shadow-glow-violet: none;
-  --shadow-soft: 0 10px 30px -15px oklch(0 0 0 / 0.5);
+  --radius: 0.75rem;
+  --electric: #D4FF00;
+  --electric-green: #D4FF00;
+  --background: #FFFFFF;
+  --foreground: #111111;
+  --card: #FFFFFF;
+  --card-foreground: #111111;
+  --popover: #FFFFFF;
+  --popover-foreground: #111111;
+  --primary: #D4FF00;
+  --primary-foreground: #111111;
+  --secondary: #F7F7F2;
+  --secondary-foreground: #111111;
+  --muted: #F7F7F2;
+  --muted-foreground: #64748b;
+  --accent: #D4FF00;
+  --accent-foreground: #111111;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(17, 17, 17, 0.12);
+  --input: #f8fafc;
+  --ring: #D4FF00;
+  --neon: #D4FF00;
+  --neon-foreground: #111111;
+  --violet: #7c3aed;
+  --cyber: #111111;
 }
 
 .dark { color-scheme: dark; }
@@ -93,68 +84,108 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
-  ::selection { background: oklch(0.55 0.25 305 / 0.5); color: var(--foreground); }
-  ::-webkit-scrollbar { width: 10px; }
-  ::-webkit-scrollbar-track { background: oklch(0.13 0.03 280); }
-  ::-webkit-scrollbar-thumb {
-    background: oklch(0.4 0.005 260);
-    border-radius: 10px;
+  a, button {
+    cursor: pointer;
   }
+  p { line-height: 1.75; }
+  ::selection { background: rgba(212, 255, 0, 0.3); color: var(--foreground); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f4f4ef; }
+  ::-webkit-scrollbar-thumb { background: #d3d1c7; border-radius: 6px; }
 }
 
 @layer utilities {
   .font-display { font-family: var(--font-display); }
+  .font-serif-accent { font-family: var(--font-serif); }
   .font-mono { font-family: var(--font-mono); }
-  .bg-hero { background: var(--gradient-hero); }
-  .bg-violet-blue { background: var(--gradient-violet-blue); }
-  .text-gradient {
-    color: var(--foreground);
+  .text-electric { color: var(--electric); }
+  .bg-electric { background-color: var(--electric); }
+  .border-electric { border-color: var(--electric); }
+
+  .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: #111111;
+    color: #ffffff;
+    font-weight: 800;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .glass {
-    background: var(--gradient-glass);
-    backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border: 1px solid oklch(1 0 0 / 0.08);
+  .cta-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(17, 17, 17, 0.16);
   }
-  .glass-strong {
-    background: oklch(0.18 0.04 282 / 0.7);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid oklch(1 0 0 / 0.1);
+
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    padding: 0.625rem;
+    color: #111111;
+    background: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
   }
-  .glow-neon { box-shadow: var(--shadow-neon); }
-  .glow-violet { box-shadow: var(--shadow-glow-violet); }
-  .grid-bg {
-    background-image:
-      linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
+  .icon-btn:hover {
+    border-color: var(--electric);
+    color: var(--electric);
+    background: rgba(212, 255, 0, 0.12);
   }
-  .noise::before {
-    content: "";
-    position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    opacity: 0.04; pointer-events: none; mix-blend-mode: overlay;
+
+  .skill-pill {
+    border-radius: 9999px;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    background: #ffffff;
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    color: #334155;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   }
+  .skill-pill:hover {
+    border-color: rgba(212, 255, 0, 0.4);
+    color: #111111;
+    transform: translateY(-1px);
+  }
+
+  .skill-pill-sm {
+    border-radius: 9999px;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    background: #ffffff;
+    padding: 0.375rem 0.875rem;
+    font-size: 0.75rem;
+    color: #475569;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .skill-pill-sm:hover {
+    border-color: rgba(212, 255, 0, 0.4);
+    color: #111111;
+    transform: translateY(-1px);
+  }
+
+  .bg-watermark {
+    font-size: clamp(4rem, 18vw, 14rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    color: #111111;
+    opacity: 0.04;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .marquee-cyan { background: var(--electric); color: #111111; }
+  .marquee-green { background: var(--electric-green); color: #111111; }
+  .marquee-diagonal { transform: rotate(-2deg) scale(1.04); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px oklch(0.78 0.18 240 / 0.4), 0 0 40px oklch(0.55 0.25 305 / 0.2); }
-  50% { box-shadow: 0 0 35px oklch(0.78 0.18 240 / 0.7), 0 0 70px oklch(0.55 0.25 305 / 0.4); }
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  50.01%, 100% { opacity: 0; }
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
