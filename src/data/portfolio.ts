@@ -34,6 +34,15 @@ export type Achievement = {
 
 export const projects: Project[] = [
   {
+    title: "Autonomous Network Healing Platform",
+    category: "NETWORK AUTOMATION / AI OPERATIONS",
+    description:
+      "Event-driven NMS that detects network link failures, performs automated RCA, and triggers NETCONF/YANG-based interface recovery through a Kafka-driven healing pipeline.",
+    tech: ["Python", "Docker", "Containerlab", "Kafka", "NETCONF/YANG"],
+    live: "https://github.com/dharmateja06/autonomous-network-healing.git",
+    visual: "from-violet-100 via-white to-sky-100",
+  },
+  {
     title: "Policy Lens AI",
     category: "AI-POWERED / NLP",
     description:
