@@ -13,15 +13,8 @@ const layoutClasses = [
 ];
 
 function ProjectCard({ p, index }: { p: Project; index: number }) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay: index * 0.06 }}
-      whileHover={{ y: -6, scale: 1.02 }}
-      className={`group overflow-hidden rounded-[1.85rem] border border-[#111111]/8 bg-white/80 shadow-[0_10px_35px_rgba(17,17,17,0.04)] backdrop-blur-sm ${layoutClasses[index % layoutClasses.length]}`}
-    >
+  const cardContent = (
+    <>
       <div className={`relative flex min-h-[240px] flex-col justify-between overflow-hidden bg-gradient-to-br p-7 sm:p-8 ${p.visual}`}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_36%)]" />
         <div className="relative flex items-center justify-between">
@@ -71,6 +64,37 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
           </span>
         )}
       </div>
+    </>
+  );
+
+  if (p.live) {
+    return (
+      <motion.a
+        href={p.live}
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, delay: index * 0.06 }}
+        whileHover={{ y: -6, scale: 1.02 }}
+        className={`group overflow-hidden rounded-[1.85rem] border border-[#111111]/8 bg-white/80 shadow-[0_10px_35px_rgba(17,17,17,0.04)] backdrop-blur-sm ${layoutClasses[index % layoutClasses.length]}`}
+      >
+        {cardContent}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, delay: index * 0.06 }}
+      whileHover={{ y: -6, scale: 1.02 }}
+      className={`group overflow-hidden rounded-[1.85rem] border border-[#111111]/8 bg-white/80 shadow-[0_10px_35px_rgba(17,17,17,0.04)] backdrop-blur-sm ${layoutClasses[index % layoutClasses.length]}`}
+    >
+      {cardContent}
     </motion.article>
   );
 }

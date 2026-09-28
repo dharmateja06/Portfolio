@@ -159,6 +159,13 @@ export const skillsGeneral = [
 
 export const achievements: Achievement[] = [
   {
+    title: "Best Performer",
+    event: "Dev Creations and Solutions",
+    year: "2026",
+    description:
+      "Recognized for commitment and valuable contribution during my time at Dev Creations and Solutions.",
+  },
+  {
     title: "2nd Runner-Up",
     event: "IOTOPIA Hackathon",
     year: "2025",

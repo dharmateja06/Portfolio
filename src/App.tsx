@@ -5,7 +5,7 @@ import { Hero } from "@/components/portfolio/Hero";
 import { About } from "@/components/portfolio/About";
 import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
-import { Achievements } from "@/components/portfolio/Achievements";
+import { AwardsSection } from "@/components/portfolio/AwardsSection";
 import { Experience } from "@/components/portfolio/Experience";
 import { Contact } from "@/components/portfolio/Contact";
 
@@ -43,7 +43,7 @@ export function App() {
         <SectionDivider />
         <Experience />
         <SectionDivider />
-        <Achievements />
+        <AwardsSection />
         <SectionDivider />
         <Contact />
       </main>
